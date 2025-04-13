@@ -107,7 +107,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 1s ease; /* Smooth transition */
+    transition: background-image 1s ease-in; /* Smooth transition */
     display: flex;
     align-items: center;
     justify-content: center;
