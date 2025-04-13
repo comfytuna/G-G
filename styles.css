@@ -107,6 +107,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: background-image 1s ease; /* Smooth transition */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,63 +145,98 @@ body {
    INTRO / SINGLE PRODUCT SECTION
 -------------------------- */
 .intro-section {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.intro-text h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.intro-text p {
-  margin-bottom: 1rem;
-  color: #777;
-}
-
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-  .intro-section {
-    grid-template-columns: 1fr;  /* Stack into a single column */
-    text-align: center;         /* Optionally center the content */
-  }
-  
-  .intro-text {
-    padding: 0 1rem;            /* Add some horizontal padding for small screens */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
   }
   
   .intro-text h2 {
-    font-size: 1.6rem;          /* Slightly smaller headline */
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
   }
-}
-
-
-.product-price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.design-by {
-  font-size: 0.9rem;
-  color: #999;
-}
-
-.product-highlight {
-  text-align: center;
-  width: 50%;
-}
-
-.product-highlight img {
-  max-width: 100%;
-  height: auto;
-}
+  
+  .intro-text p {
+    margin-bottom: 1rem;
+    color: #777;
+  }
+  
+  /* Responsive adjustments for mobile */
+  @media (max-width: 768px) {
+    .intro-section {
+      grid-template-columns: 1fr;  /* Stack into a single column */
+      text-align: center;         /* Optionally center the content */
+    }
+    
+    .intro-text {
+      padding: 0 1rem;            /* Add some horizontal padding for small screens */
+    }
+    
+    .intro-text h2 {
+      font-size: 1.6rem;          /* Slightly smaller headline */
+    }
+  }
+  
+  .product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .design-by {
+    font-size: 0.9rem;
+    color: #999;
+  }
+  
+  /* Remove the fixed width from .product-highlight so it automatically fills its grid cell */
+  .product-highlight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Removed: width: 50%; */
+  }
+  
+  /* Ensure the image scales appropriately */
+  .product-highlight img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* For angled images */
+  .angled-img {
+    width: 300px;
+    object-fit: cover;
+    /* Diagonal shape from top-left to bottom-right */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  
+  /* For hexagonal images */
+  .hex-img {
+    width: 300px;
+    clip-path: polygon(
+      25% 0%, 
+      75% 0%, 
+      100% 50%, 
+      75% 100%, 
+      25% 100%, 
+      0% 50%
+    );
+    -webkit-clip-path: polygon(
+      25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%
+    );
+    object-fit: cover;
+  }
+  
 
 /* -------------------------
    FEATURED PRODUCTS SECTION
@@ -327,34 +363,7 @@ footer p {
   color: #777;
 }
 
-.angled-img {
-    width: 300px;
-    object-fit: cover;
-    /* A diagonal shape from top-left to bottom-right */
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-    /* For broader browser support, consider -webkit-clip-path too: */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  }
-  .hex-img {
-    width: 300px;
-    clip-path: polygon(
-      25% 0%, 
-      75% 0%, 
-      100% 50%, 
-      75% 100%, 
-      25% 100%, 
-      0% 50%
-    );
-    -webkit-clip-path: polygon(
-      25% 0%,
-      75% 0%,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0% 50%
-    );
-    object-fit: cover;
-  }
+
 /* CONTACT SECTION STYLES */
 .contact-section {
     padding: 2rem 1rem;
@@ -424,25 +433,24 @@ footer p {
   html {
     scroll-behavior: smooth;
   }
-
-.header-inner {
-  position: relative; /* Establishes a containing block for absolute elements */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Left align other items if needed */
-  padding: 1rem 2rem;
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Center the logo absolutely */
-.logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ba8c63;
-}
-
+  
+  .header-inner {
+    position: relative; /* Establishes a containing block for absolute elements */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Left align other items if needed */
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Center the logo absolutely */
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ba8c63;
+  }
   
