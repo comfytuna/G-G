@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #fdfdfd;
+  background-color: #f1f8e9;
   color: #333;
   line-height: 1.5;
 }
@@ -107,7 +107,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 1s ease-in; /* Smooth transition */
+    transition: background-image 1s ease; /* Smooth transition */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -352,7 +352,7 @@ body {
    FOOTER
 -------------------------- */
 footer {
-  background-color: #fff;
+  background-color: #f8f4e8;
   padding: 1rem 2rem;
   text-align: center;
   border-top: 1px solid #eee;
@@ -440,7 +440,7 @@ footer p {
     align-items: center;
     justify-content: flex-start; /* Left align other items if needed */
     padding: 1rem 2rem;
-    background-color: #fff;
+    background-color: #f8f4e8;
     border-bottom: 1px solid #ccc;
   }
   
@@ -452,5 +452,14 @@ footer p {
     font-size: 1.5rem;
     font-weight: 700;
     color: #ba8c63;
+  }
+  
+  .section-divider {
+    width: 80%;         /* or 100%, depending on preference */
+    max-width: 1200px;  /* match your layout width if you like */
+    margin: 2rem auto;  /* space above & below the divider */
+    border: 0;
+    height: 1px;        /* line thickness */
+    background-color: #ccc;
   }
   
