@@ -407,4 +407,25 @@ footer p {
   html {
     scroll-behavior: smooth;
   }
+
+.header-inner {
+  position: relative; /* Establishes a containing block for absolute elements */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Left align other items if needed */
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Center the logo absolutely */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ba8c63;
+}
+
   
