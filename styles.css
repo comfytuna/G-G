@@ -163,6 +163,23 @@ body {
   color: #777;
 }
 
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .intro-section {
+    grid-template-columns: 1fr;  /* Stack into a single column */
+    text-align: center;         /* Optionally center the content */
+  }
+  
+  .intro-text {
+    padding: 0 1rem;            /* Add some horizontal padding for small screens */
+  }
+  
+  .intro-text h2 {
+    font-size: 1.6rem;          /* Slightly smaller headline */
+  }
+}
+
+
 .product-price {
   font-size: 1.2rem;
   font-weight: bold;
